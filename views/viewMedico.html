@@ -1,0 +1,123 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Saúde</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    
+<div class="container" id="home-screen" style="display: none;">
+    <div class="header">
+        <h2>Clínica Saúde</h2>
+        <p>Sua saúde em primeiro lugar</p>
+    </div>
+    <a href="#" class="menu-button" onclick="showAgendaScreen()"><i class="fas fa-calendar-alt"></i>Agenda/Horários</a>
+    <a href="#" class="menu-button" onclick="showAppointmentsScreen()"><i class="fas fa-list-alt"></i>Consultas marcadas</a>
+    <a href="#" class="menu-button" onclick="showPatientEvaluationList()"><i class="fas fa-user-md"></i>Avaliação dos Pacientes</a>
+</div>
+
+<div class="container" id="agenda-screen" style="display: none;">
+    <div class="header">
+        <button type="button" class="btn btn-secondary back-button" onclick="showHomeScreen()"><i class="fas fa-arrow-left"></i></button>
+        <h2>Agenda/Horários</h2>
+    </div>
+    <!-- Implementar Calendário aqui -->
+    <p>Calendário aqui (implementar)</p>
+    <button type="button" class="btn btn-primary" onclick="showScheduleScreen()">Ver Horários do Dia</button>
+</div>
+
+<div class="container" id="schedule-screen" style="display: none;">
+    <div class="header">
+        <button type="button" class="btn btn-secondary back-button" onclick="showAgendaScreen()"><i class="fas fa-arrow-left"></i></button>
+        <h2>Horários</h2>
+    </div>
+    <div class="appointment-slot available">
+        <span>07:00</span>
+        <i class="fas fa-check-circle"></i>
+    </div>
+    <div class="appointment-slot unavailable">
+        <span>08:00</span>
+        <i class="fas fa-times-circle"></i>
+    </div>
+    <!-- Adicionar mais horários aqui -->
+    <div class="appointment-slot available">
+        <span>13:00</span>
+        <i class="fas fa-check-circle"></i>
+    </div>
+    <div class="appointment-slot available">
+        <span>14:00</span>
+        <i class="fas fa-check-circle"></i>
+    </div>
+    <div class="appointment-slot available">
+        <span>15:00</span>
+        <i class="fas fa-check-circle"></i>
+    </div>
+</div>
+
+<div class="container" id="appointments-screen" style="display: none;">
+    <div class="header">
+        <button type="button" class="btn btn-secondary back-button" onclick="showHomeScreen()"><i class="fas fa-arrow-left"></i></button>
+        <h2>Consultas Marcadas</h2>
+    </div>
+    <div class="appointment-details">
+        <p><strong>Horário de atendimento:</strong> 13:00</p>
+        <p><strong>Nome:</strong> Webertyfysson Antúnez M.</p>
+        <button type="button" class="btn btn-danger">Cancelar</button>
+    </div>
+    <!-- Adicionar mais detalhes de consultas aqui -->
+</div>
+
+<div class="container" id="patient-consultation-screen" style="display: none;">
+    <div class="header">
+        <button type="button" class="btn btn-secondary back-button" onclick="showAppointmentsScreen()"><i class="fas fa-arrow-left"></i></button>
+        <h2>Consulta paciente</h2>
+    </div>
+    <div class="appointment-details">
+         <div class="mb-3">
+            <label for="observacoes" class="form-label">Observações</label>
+            <textarea class="form-control" id="observacoes" rows="3"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="exames" class="form-label">Exames/Resultados</label>
+            <input type="file" class="form-control" id="exames">
+        </div>
+        <div class="mb-3">
+            <label for="prescricoes" class="form-label">Prescrições</label>
+            <textarea class="form-control" id="prescricoes" rows="3"></textarea>
+        </div>
+        <button type="button" class="btn btn-success">Concluir</button>
+    </div>
+    <!-- Adicionar mais detalhes de consultas aqui -->
+</div>
+
+<div class="container" id="patient-evaluation-screen" style="display: none;">
+    <div class="header">
+        <button type="button" class="btn btn-secondary back-button" onclick="showPatientEvaluationList()"><i class="fas fa-arrow-left"></i></button>
+        <h2>Avaliação do paciente</h2>
+    </div>
+    <div class="patient-evaluation">
+        <p><strong>Paciente:</strong> João Batista</p>
+        <p><strong>Data:</strong> 20/02/2025</p>
+        <p><strong>Comentário:</strong> Excelente trabalho</p>
+    </div>
+</div>
+
+ <div class="container" id="patient-evaluation-list-screen" style="display: none;">
+    <div class="header">
+        <button type="button" class="btn btn-secondary back-button" onclick="showHomeScreen()"><i class="fas fa-arrow-left"></i></button>
+        <h2>Avaliação do paciente</h2>
+    </div>
+    <ul class="evaluation-list">
+        <li>Paciente: João Batista</li>
+        <li>Paciente: Raimundo Silva</li>
+    </ul>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="scripts/script.js"></script>
+</body>
+</html>
