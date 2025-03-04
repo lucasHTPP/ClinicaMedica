@@ -9,115 +9,241 @@
 </head>
 <body>
 
-<div class="container" id="home-screen" style="display: block;">
-    <div class="header">
-        <h2>Clínica Saúde</h2>
-        <p>Sua saúde em primeiro lugar</p>
-    </div>
-    <a href="#" class="menu-button" onclick="showAgendaScreen()"><i class="fas fa-calendar-alt"></i>Agenda/Horários</a>
-    <a href="#" class="menu-button" onclick="showAppointmentsScreen()"><i class="fas fa-list-alt"></i>Consultas marcadas</a>
-    <a href="#" class="menu-button" onclick="showPatientEvaluationList()"><i class="fas fa-user-md"></i>Avaliação dos Pacientes</a>
-</div>
+  <!-- Tela menu inicial do medico-->
+  <div class="container-fluid col-lg-3 col-md-6 col-sm-10" id="login-screen">
+    <div class="login-form card">
+        <div class="card-body">
+            <div class="card-header bg-success text-white">
+                <h2>Clínica Saúde</h2>
+                <p>Sua saúde em primeiro lugar</p>
+            </div>
+            <div class="menu">
+              <div>
+                  <button class="btn btn-success text-white mt-3" onclick="showhideview('agenda2')">
+                    <a href="#">
+                      <i class="fa-solid fa-user-doctor"></i> Agenda/Horarios
+                    </a>
+                  </button> 
+                  
+                  <button class="btn btn-success text-white mt-3">
+                    <a href="#">
+                      <i class="fa-solid fa-calendar-days"></i> Consultas agendadas
+                    </a>
+                  </button>
 
-<div class="container" id="agenda-screen" style="display: none;">
-    <div class="header">
-        <button type="button" class="btn btn-secondary back-button" onclick="showHomeScreen()"><i class="fas fa-arrow-left"></i></button>
-        <h2>Agenda/Horários</h2>
-    </div>
-    <!-- Implementar Calendário aqui -->
-    <p>Calendário aqui (implementar)</p>
-    <button type="button" class="btn btn-primary" onclick="showScheduleScreen()">Ver Horários do Dia</button>
-</div>
-
-<div class="container" id="schedule-screen" style="display: none;">
-    <div class="header">
-        <button type="button" class="btn btn-secondary back-button" onclick="showAgendaScreen()"><i class="fas fa-arrow-left"></i></button>
-        <h2>Horários</h2>
-    </div>
-    <div class="appointment-slot available">
-        <span>07:00</span>
-        <i class="fas fa-check-circle"></i>
-    </div>
-    <div class="appointment-slot unavailable">
-        <span>08:00</span>
-        <i class="fas fa-times-circle"></i>
-    </div>
-    <!-- Adicionar mais horários aqui -->
-    <div class="appointment-slot available">
-        <span>13:00</span>
-        <i class="fas fa-check-circle"></i>
-    </div>
-    <div class="appointment-slot available">
-        <span>14:00</span>
-        <i class="fas fa-check-circle"></i>
-    </div>
-    <div class="appointment-slot available">
-        <span>15:00</span>
-        <i class="fas fa-check-circle"></i>
-    </div>
-</div>
-
-<div class="container" id="appointments-screen" style="display: none;">
-    <div class="header">
-        <button type="button" class="btn btn-secondary back-button" onclick="showHomeScreen()"><i class="fas fa-arrow-left"></i></button>
-        <h2>Consultas Marcadas</h2>
-    </div>
-    <div class="appointment-details">
-        <p><strong>Horário de atendimento:</strong> 13:00</p>
-        <p><strong>Nome:</strong> Webertyfysson Antúnez M.</p>
-        <button type="button" class="btn btn-danger">Cancelar</button>
-    </div>
-    <!-- Adicionar mais detalhes de consultas aqui -->
-</div>
-
-<div class="container" id="patient-consultation-screen" style="display: none;">
-    <div class="header">
-        <button type="button" class="btn btn-secondary back-button" onclick="showAppointmentsScreen()"><i class="fas fa-arrow-left"></i></button>
-        <h2>Consulta paciente</h2>
-    </div>
-    <div class="appointment-details">
-         <div class="mb-3">
-            <label for="observacoes" class="form-label">Observações</label>
-            <textarea class="form-control" id="observacoes" rows="3"></textarea>
+                  <button class="btn btn-success text-white mt-3">
+                    <a href="#">
+                      <i class="fa-solid fa-calendar-days"></i> Avaliação dos pacientes
+                    </a>
+                  </button>
+              </div>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="exames" class="form-label">Exames/Resultados</label>
-            <input type="file" class="form-control" id="exames">
+    </div>
+  </div>
+
+<!-- Tela Agenda medica calendario-->
+  <div class="container-fluid col-lg-4 col-md-6 col-sm-10 d-none" id="agenda">
+    <div class="login-form card">
+        <div class="card-body">
+            <div class="card-header bg-success text-white">
+                <h2>Clínica Saúde</h2>
+                <p>Sua saúde em primeiro lugar</p>
+            </div>
+            <div class="menu">
+                <h3 class="mt-3 col-12 text-center">Agenda</h3>
+                <div class="container mt-5">
+                  <div class="calendar mt-3">
+                    <table id="calendar-table" class="table table-bordered">
+                      <thead>
+                          <tr>
+                              <th>Dom</th>
+                              <th>Seg</th>
+                              <th>Ter</th>
+                              <th>Qua</th>
+                              <th>Qui</th>
+                              <th>Sex</th>
+                              <th>Sáb</th>
+                          </tr>
+                      </thead>
+                      <tbody id="calendar-body"></tbody>
+                    </table>
+                  </div>
+              </div>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="prescricoes" class="form-label">Prescrições</label>
-            <textarea class="form-control" id="prescricoes" rows="3"></textarea>
+    </div>
+  </div>
+
+
+  <!-- Tela Agenda medica horarios 2-->
+  <div class="container-fluid col-lg-4 col-md-6 col-sm-10 d-none" id="agenda2">
+    <div class="login-form card">
+        <div class="card-body">
+            <div class="card-header bg-success text-white">
+                <h2>Clínica Saúde</h2>
+                <p>Sua saúde em primeiro lugar</p>
+            </div>
+            <div class="menu">
+            <h3 class="text-center">Horários</h3>
+            <div class="legend">
+                <div><span style="background-color: green;"></span> Horários Livres</div>
+                <div><span style="background-color: gray;"></span> Horários Indisponíveis/Bloqueado</div>
+            </div>
+              <div class="list-group">
+                  <div class="time-slot unavailable">
+                      <span>07:00</span>
+                      <input type="checkbox" checked >
+                  </div>
+                  <div class="time-slot unavailable">
+                      <span>08:00</span>
+                      <input type="checkbox" checked >
+                  </div>
+                  <div class="time-slot unavailable">
+                      <span>09:00</span>
+                      <input type="checkbox" checked >
+                  </div>
+                  <div class="time-slot unavailable">
+                      <span>10:00</span>
+                      <input type="checkbox" checked >
+                  </div>
+                  <div class="time-slot unavailable">
+                      <span>11:00</span>
+                      <input type="checkbox" checked >
+                  </div>
+                  <div class="time-slot available">
+                      <span>13:00</span>
+                      <input type="checkbox">
+                  </div>
+                  <div class="time-slot available">
+                      <span>14:00</span>
+                      <input type="checkbox">
+                  </div>
+                  <div class="time-slot available">
+                      <span>15:00</span>
+                      <input type="checkbox">
+                  </div>
+                  <div class="time-slot available">
+                      <span>16:00</span>
+                      <input type="checkbox">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <button type="button" class="btn btn-success">Concluir</button>
+
+
+        
+<!-- Tela Consultas marcadas-->
+  <div class="container-fluid col-lg-4 col-md-6 col-sm-10 d-none" id="consultas_marcadas">
+    <div class="login-form card">
+        <div class="card-body">
+            <div class="card-header bg-success text-white">
+                <h2>Clínica Saúde</h2>
+                <p>Sua saúde em primeiro lugar</p>
+            </div>
+            <div class="menu">
+                <h3 class="mt-3 col-12 text-center">Consultas marcadas</h3>
+                <div class="container mt-5">
+
+                  <div class="d-flex border border-success p-2 align-items-center">
+                    <div class="flex-grow-1">
+                      <strong>Horário de consulta:</strong> 07:00 <br>
+                      <strong>Nome do paciente:</strong> João Silva
+                    </div>
+                    <div class="ml-3">
+                      <button class="btn btn-success" onclick="showhideview('consulta_paciente') ">
+                        <i class="fa fa-check"></i>
+                      </button>
+                      <button class="btn btn-danger">
+                        <i class="fa fa-x"></i>
+                      </button>
+                    </div>
+                  </div>                  
+              </div>
+            </div>
+        </div>
     </div>
-    <!-- Adicionar mais detalhes de consultas aqui -->
+  </div>
+
+         
+<!-- Tela Consultas marcadas-->
+<div class="container-fluid col-lg-4 col-md-6 col-sm-10 d-none" id="consultas_marcadas">
+  <div class="login-form card">
+      <div class="card-body">
+          <div class="card-header bg-success text-white">
+              <h2>Clínica Saúde</h2>
+              <p>Sua saúde em primeiro lugar</p>
+          </div>
+          <div class="menu">
+              <h3 class="mt-3 col-12 text-center">Consultas marcadas</h3>
+              <div class="container mt-5">
+
+                <div class="d-flex border border-success p-2 align-items-center">
+                  <div class="flex-grow-1">
+                    <strong>Horário de consulta:</strong> 07:00 <br>
+                    <strong>Nome do paciente:</strong> João Silva
+                  </div>
+                </div>                  
+
+                <div class="  p-2 align-items-center">
+                  <form action="#" method="#" class="form-control">
+                    
+                    <label for="observacoes" class="mt-3 form-label"><strong>Observações</strong></label>
+                    <textarea class="form-control" placeholder="Aqui serão registradas suas observações" name="observacoes" id="observacoes" style="height: 100px"></textarea>
+
+                    <label for="resultados" class="mt-3 form-label"><strong>Resultados</strong></label>
+                    <input class="form-control" name="resultados" type="file" id="resultados">
+
+                    <label for="prescricao" class="mt-3 form-label"><strong>Prescrições</strong></label>
+                    <input class="form-control" name="prescricao" type="file" id="prescricao">
+
+                    <button type="submit" class="mt-5 btn btn-success"><a href="#">Salvar</a></button>
+                  </form>
+                </div>
+            </div>
+          </div>
+      </div>
+  </div>
 </div>
 
-<div class="container" id="patient-evaluation-screen" style="display: none;">
-    <div class="header">
-        <button type="button" class="btn btn-secondary back-button" onclick="showPatientEvaluationList()"><i class="fas fa-arrow-left"></i></button>
-        <h2>Avaliação do paciente</h2>
-    </div>
-    <div class="patient-evaluation">
-        <p><strong>Paciente:</strong> João Batista</p>
-        <p><strong>Data:</strong> 20/02/2025</p>
-        <p><strong>Comentário:</strong> Excelente trabalho</p>
-    </div>
+
+
+<!-- Tela Avaliação dos pacientes-->
+<div class="container-fluid col-lg-4 col-md-6 col-sm-10 d-none" id="consultas_marcadas">
+  <div class="login-form card">
+      <div class="card-body">
+          <div class="card-header bg-success text-white">
+              <h2>Clínica Saúde</h2>
+              <p>Sua saúde em primeiro lugar</p>
+          </div>
+          <div class="menu">
+              <h3 class="mt-3 col-12 text-center">Avaliação dos pacientes</h3>
+              <div class="container mt-5">
+
+                <div class="d-flex border border-success p-2 align-items-center">
+                  <div class="d-flex flex-column flex-md-row align-items-center">
+                    <div class="flex-grow-1">
+                      <strong>Paciente:</strong> João Silva
+                      <br>
+                      <strong>Feedback:</strong>
+                      <i class="fa fa-star text-warning"></i>
+                      <i class="fa fa-star text-warning"></i>
+                      <i class="fa fa-star text-warning"></i>
+                      <i class="fa fa-star text-warning"></i>
+                      <i class="fa fa-star text-warning"></i>
+                    </div>
+                  </div>                  
+                </div>     
+            </div>
+          </div>
+      </div>
+  </div>
 </div>
 
- <div class="container" id="patient-evaluation-list-screen" style="display: none;">
-    <div class="header">
-        <button type="button" class="btn btn-secondary back-button" onclick="showHomeScreen()"><i class="fas fa-arrow-left"></i></button>
-        <h2>Avaliação do paciente</h2>
-    </div>
-    <ul class="evaluation-list">
-        <li>Paciente: João Batista</li>
-        <li>Paciente: Raimundo Silva</li>
-    </ul>
-</div>
 
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../scripts/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../scripts/script.js"></script>
 </body>
 </html>

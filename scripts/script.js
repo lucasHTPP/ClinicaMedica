@@ -1,50 +1,44 @@
 
-function showHomeScreen() {
-    document.getElementById('login-screen').style.display = 'none';
-    document.getElementById('home-screen').style.display = 'block';
-    document.getElementById('agenda-screen').style.display = 'none';
-    document.getElementById('schedule-screen').style.display = 'none';
-    document.getElementById('appointments-screen').style.display = 'none';
-     document.getElementById('patient-consultation-screen').style.display = 'none';
-    document.getElementById('patient-evaluation-screen').style.display = 'none';
-    document.getElementById('patient-evaluation-list-screen').style.display = 'none';
+// função para gerar o calendario
+function generateCalendar() {
+    const calendarBody = document.getElementById('calendar-body');
+    const today = new Date();
+    const currentMonth = today.getMonth();
+    const currentYear = today.getFullYear();
+    const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+    const lastDate = new Date(currentYear, currentMonth + 1, 0).getDate();
+    
+    calendarBody.innerHTML = '';
+    let row = document.createElement('tr');
+    
+    for (let i = 0; i < firstDay; i++) {
+        let cell = document.createElement('td');
+        row.appendChild(cell);
+    }
+    
+    for (let day = 1; day <= lastDate; day++) {
+        let cell = document.createElement('td');
+        cell.textContent = day;
+        
+        if (day === today.getDate()) {
+            cell.classList.add('today');
+        }
+        
+        row.appendChild(cell);
+        
+        if ((firstDay + day) % 7 === 0) {
+            calendarBody.appendChild(row);
+            row = document.createElement('tr');
+        }
+    }
+    
+    if (row.children.length > 0) {
+        calendarBody.appendChild(row);
+    }
 }
+generateCalendar();
+ // fim da função gerar o calendario
 
-function showAgendaScreen() {
-    document.getElementById('home-screen').style.display = 'none';
-    document.getElementById('agenda-screen').style.display = 'block';
-    document.getElementById('schedule-screen').style.display = 'none';
-     document.getElementById('appointments-screen').style.display = 'none';
-      document.getElementById('patient-consultation-screen').style.display = 'none';
-    document.getElementById('patient-evaluation-screen').style.display = 'none';
-    document.getElementById('patient-evaluation-list-screen').style.display = 'none';
-}
-
-function showScheduleScreen() {
-    document.getElementById('agenda-screen').style.display = 'none';
-    document.getElementById('schedule-screen').style.display = 'block';
-    document.getElementById('appointments-screen').style.display = 'none';
-     document.getElementById('patient-consultation-screen').style.display = 'none';
-    document.getElementById('patient-evaluation-screen').style.display = 'none';
-    document.getElementById('patient-evaluation-list-screen').style.display = 'none';
-}
-
- function showAppointmentsScreen() {
-    document.getElementById('home-screen').style.display = 'none';
-    document.getElementById('agenda-screen').style.display = 'none';
-    document.getElementById('schedule-screen').style.display = 'none';
-    document.getElementById('appointments-screen').style.display = 'block';
-    document.getElementById('patient-consultation-screen').style.display = 'block';
-    document.getElementById('patient-evaluation-screen').style.display = 'none';
-    document.getElementById('patient-evaluation-list-screen').style.display = 'none';
-}
-
-  function showPatientEvaluationList() {
-    document.getElementById('home-screen').style.display = 'none';
-    document.getElementById('agenda-screen').style.display = 'none';
-    document.getElementById('schedule-screen').style.display = 'none';
-    document.getElementById('appointments-screen').style.display = 'none';
-     document.getElementById('patient-consultation-screen').style.display = 'none';
-    document.getElementById('patient-evaluation-screen').style.display = 'block';
-    document.getElementById('patient-evaluation-list-screen').style.display = 'block';
+function showhideview(view) {
+    document.getElementById(view).classList.toggle('d-none');
 }
