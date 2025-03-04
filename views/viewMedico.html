@@ -24,14 +24,14 @@
                       <i class="fa-solid fa-user-doctor"></i> Agenda/Horarios
                     </a>
                   </button> 
-                  
-                  <button class="btn btn-success text-white mt-3">
+                   
+                  <button class="btn btn-success text-white mt-3" onclick="showhideview('calendario')"> 
                     <a href="#">
                       <i class="fa-solid fa-calendar-days"></i> Consultas agendadas
                     </a>
                   </button>
 
-                  <button class="btn btn-success text-white mt-3">
+                  <button class="btn btn-success text-white mt-3" onclick="showhideview('avaliacao')" >
                     <a href="#">
                       <i class="fa-solid fa-calendar-days"></i> Avaliação dos pacientes
                     </a>
@@ -43,7 +43,7 @@
   </div>
 
 <!-- Tela Agenda medica calendario-->
-  <div class="container-fluid col-lg-4 col-md-6 col-sm-10 d-none" id="agenda">
+  <div class="container-fluid col-lg-4 col-md-6 col-sm-10 d-none" id="calendario">
     <div class="login-form card">
         <div class="card-body">
             <div class="card-header bg-success text-white">
@@ -211,7 +211,7 @@
 
 
 <!-- Tela Avaliação dos pacientes-->
-<div class="container-fluid col-lg-4 col-md-6 col-sm-10 d-none" id="consultas_marcadas">
+<div class="container-fluid col-lg-4 col-md-6 col-sm-10 d-none" id="avaliacao">
   <div class="login-form card">
       <div class="card-body">
           <div class="card-header bg-success text-white">
