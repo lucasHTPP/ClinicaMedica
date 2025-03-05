@@ -82,3 +82,198 @@ th {
     font-size: 1.2rem;
     margin-left: 10px;
 }
+
+
+/* Estilo para o select em tela*/
+#estado {
+    
+    align-items: center;
+    justify-content: left;
+    background-color: #d0f0d0;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 18px;
+    color: #000;
+    text-decoration: none;
+    width: 300px
+}
+
+#estado option {
+    background-color: green;
+    color: white;
+}
+
+/* planilha dados pessoais*/
+.planilha-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+input[readonly] {
+    background-color: #f0f0f0;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: darkgreen;
+}
+
+/* Estilo da página de avaliação Paciente*/
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.avaliacao-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.estrelas {
+    font-size: 30px;
+}
+
+.estrela {
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding: 5px;
+}
+
+#enviar-btn {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#enviar-btn:hover {
+    background-color: darkgreen;
+}
+
+#avaliacao-texto {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+/* Estilos escolher medico */
+/* Estilos gerais */
+body {
+    margin-top: 50;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; 
+    padding: 10;
+    display: flex;
+    justify-content: center;
+}
+.container {
+    width: 90%;
+    max-width: 400px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.back-button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.filter-button {
+    width: 100%;
+    padding: 10px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.medicos-lista {
+    margin-top: 20px;
+}
+.medico {
+    display: flex;
+    align-items: center;
+    background: #e0f2e9;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.medico img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
